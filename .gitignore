@@ -20,12 +20,6 @@ buildNumber.properties
 /.idea/
 /out/
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # macOS
 .DS_Store
 
@@ -45,12 +39,3 @@ cmake-build-debug/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
