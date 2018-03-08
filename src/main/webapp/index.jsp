@@ -10,7 +10,7 @@
 <head>
     <title>ND签到系统</title>
     <style type="text/css">
-        @import "./css/my.css";
+        @import "css/index.css";
     </style>
 </head>
 <body style="background-color: aqua">
