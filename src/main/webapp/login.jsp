@@ -14,7 +14,7 @@
 </head>
 <body bgcolor="yellow">
 <div class="wrapper">
-    <form class="form-signin" action="${pageContext.request.contextPath}/login" method="post">
+    <form class="form-signin" action="/login" method="post">
         <h1 align="center">用户登录</h1>
         <input type="text" class="form-input" name="username" placeholder="用户名" required="" autofocus="" /><br/>
         <input class="form-input" type="password"  name="password" placeholder="密码" required=""/><br/>
