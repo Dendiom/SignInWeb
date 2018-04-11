@@ -15,10 +15,11 @@
 <body>
 
 <%--<jsp:forward page="/jsp/login.jsp" />--%>
-<%
-    //request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
-    response.sendRedirect("login.jsp");
-%>
+
+<%--<%--%>
+    <%--//request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);--%>
+    <%--response.sendRedirect("login.jsp");--%>
+<%--%>--%>
 
 </body>
 
