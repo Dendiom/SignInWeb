@@ -25,12 +25,12 @@
     <!--filter-mapping-->
     <filter-mapping>
         <filter-name>CountFilter</filter-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <filter-mapping>
         <filter-name>SessionFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/main/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
@@ -69,4 +69,7 @@
         <location>/error/err_404.jsp</location>
     </error-page>
 
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
 </web-app>

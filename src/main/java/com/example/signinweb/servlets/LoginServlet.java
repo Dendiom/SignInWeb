@@ -5,10 +5,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet{
 
+
+
+    @Override
+    public void init() throws ServletException {
+
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,9 +27,11 @@ public class LoginServlet extends HttpServlet{
 
         req.setAttribute("username", username);
         req.setAttribute("password", password);
-        req.getSession().setAttribute("sessionVal", username);
+        req.getSession().setAttribute("username", username);
 
-        req.getRequestDispatcher("form.jsp").forward(req, resp);
+        req.getRequestDispatcher("/main/form.jsp").forward(req, resp);
        // resp.sendRedirect("/form");
     }
+
+
 }
