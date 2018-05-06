@@ -11,12 +11,13 @@
 <head>
     <title>登录</title>
     <link rel="stylesheet" href="css/login.css">
+    <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
 </head>
 <body bgcolor="#9acd32">
 <div class="wrapper">
-    <form class="form-signin" action="/login.do" method="post">
+    <form class="form-signin" action="/login.do" method="post" onsubmit="return usernameCheck(document.getElementById('username').value)">
         <h1 align="center">用户登录</h1>
-        <input class="form-input" type="text" name="username" placeholder="用户名" required="" autofocus="" /><br/>
+        <input class="form-input" type="text" name="username" id="username" placeholder="用户名" required="" autofocus="" /><br/>
         <input class="form-input" type="password" name="password" placeholder="密码" required=""/><br/>
         <label class="form-label">
             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 记住账户密码

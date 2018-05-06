@@ -47,6 +47,11 @@
         <servlet-class>com.example.signinweb.servlets.FormServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.example.signinweb.servlets.RegisterServlet</servlet-class>
+    </servlet>
+
     <!--servlet-mapping-->
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -57,6 +62,20 @@
         <servlet-name>FormServlet</servlet-name>
         <url-pattern>/form</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register.do</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+
+    <context-param>
+        <param-name>COOKIE_SESSION_ID</param-name>
+        <param-value>SESSION_ID</param-value>
+    </context-param>
 
     <!--welcome-file-list-->
     <welcome-file-list>
@@ -69,7 +88,5 @@
         <location>/error/err_404.jsp</location>
     </error-page>
 
-    <session-config>
-        <session-timeout>5</session-timeout>
-    </session-config>
+
 </web-app>

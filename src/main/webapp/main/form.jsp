@@ -8,12 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>签到页面</title>
 </head>
 <body>
 
 <p>username: <%= request.getAttribute("username")%></p>
 <p>password: <%= request.getAttribute("password")%></p>
+
+<a href="form">点击跳转</a>
 
 </body>
 </html>

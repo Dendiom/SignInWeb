@@ -1,18 +1,20 @@
 package com.example.signinweb.servlets;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 public class LoginServlet extends HttpServlet{
+
+    private ServletContext servletContext;
 
 
 
     @Override
     public void init() throws ServletException {
-
+        servletContext = getServletContext();
     }
 
     @Override
@@ -27,10 +29,16 @@ public class LoginServlet extends HttpServlet{
 
         req.setAttribute("username", username);
         req.setAttribute("password", password);
-        req.getSession().setAttribute("username", username);
+        HttpSession session = req.getSession();
+        session.setAttribute("username", username);
+
+        Cookie cookie = new Cookie(servletContext.getInitParameter("COOKIE_SESSION_ID"), session.getId());
+        cookie.setMaxAge(30 * 60);
+        cookie.setPath("/");
+        resp.addCookie(cookie);
 
         req.getRequestDispatcher("/main/form.jsp").forward(req, resp);
-       // resp.sendRedirect("/form");
+        //resp.sendRedirect("/form");
     }
 
 

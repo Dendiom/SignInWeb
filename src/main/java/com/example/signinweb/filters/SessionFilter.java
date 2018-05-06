@@ -1,6 +1,7 @@
 package com.example.signinweb.filters;
 
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +22,10 @@ public class SessionFilter implements javax.servlet.Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         HttpSession session = ((HttpServletRequest) servletRequest).getSession(false);
+
+        for (Cookie cookie: ((HttpServletRequest)servletRequest).getCookies()) {
+            System.out.println(cookie.getName() + "  " +cookie.getValue());
+        }
 
         if (session == null || session.getAttribute("username") == null) {
             ((HttpServletResponse) servletResponse).sendRedirect("/login.jsp");
