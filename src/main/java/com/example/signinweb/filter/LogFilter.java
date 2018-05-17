@@ -1,4 +1,4 @@
-package com.example.signinweb.filters;
+package com.example.signinweb.filter;
 
 import javax.servlet.*;
 import java.io.IOException;

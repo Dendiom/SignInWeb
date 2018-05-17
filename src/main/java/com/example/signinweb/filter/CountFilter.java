@@ -1,11 +1,9 @@
-package com.example.signinweb.filters;
+package com.example.signinweb.filter;
 
 import javax.servlet.*;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**

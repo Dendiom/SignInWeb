@@ -20,7 +20,7 @@
         <input class="form-input" type="text" name="username" id="username" placeholder="用户名" required="" autofocus="" /><br/>
         <input class="form-input" type="password" name="password" placeholder="密码" required=""/><br/>
         <label class="form-label">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 记住账户密码
+            <input type="checkbox" value="1" id="rememberMe" name="rememberMe"> 记住登录状态
         </label><br/>
         <button class="form-button" type="submit">登录</button>
         <a class="form-label" href="/register.jsp">还没有用户，点击此处注册</a>

@@ -1,4 +1,4 @@
-package com.example.signinweb.servlets;
+package com.example.signinweb.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

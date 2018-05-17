@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.signinweb.util.CookieUtil" %>
+<%@ page import="com.example.signinweb.Constants" %><%--
   Created by IntelliJ IDEA.
   User: Lucky
   Date: 2018/3/7
@@ -17,7 +18,12 @@
 <%--<jsp:forward page="/jsp/login.jsp" />--%>
 <%
     //request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
-    response.sendRedirect("/main/form.jsp");
+    String login = CookieUtil.getCookieValue(Constants.Cookies.UID, request);
+    if (login == null) {
+        response.sendRedirect("/login.jsp");
+    } else {
+        response.sendRedirect("/main/form.jsp");
+    }
 %>
 
 </body>
