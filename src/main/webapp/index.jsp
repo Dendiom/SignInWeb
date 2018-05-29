@@ -1,5 +1,6 @@
 <%@ page import="com.example.signinweb.util.CookieUtil" %>
-<%@ page import="com.example.signinweb.Constants" %><%--
+<%@ page import="com.example.signinweb.Constants" %>
+<%@ page import="com.example.signinweb.util.Base64Util" %><%--
   Created by IntelliJ IDEA.
   User: Lucky
   Date: 2018/3/7
@@ -18,8 +19,9 @@
 <%--<jsp:forward page="/jsp/login.jsp" />--%>
 <%
     //request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
-    String login = CookieUtil.getCookieValue(Constants.Cookies.UID, request);
-    if (login == null) {
+    String cookie = CookieUtil.getCookieValue(Constants.Cookies.UID, request);
+    boolean legal = Base64Util.check(cookie);
+    if (!legal) {
         response.sendRedirect("/login.jsp");
     } else {
         response.sendRedirect("/main/form.jsp");

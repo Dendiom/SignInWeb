@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.signinweb.Constants" %>
+<%@ page import="com.example.signinweb.bean.User" %><%--
   Created by IntelliJ IDEA.
   User: Lucky
   Date: 2018/4/10
@@ -23,20 +24,22 @@
     </style>
 </head>
 <body>
-<div class="banner" style="background-color: white;width:100%;height: 10%">
+<div class="banner" style="background-color: white;width:100%;height: 15%">
     <div class="info" style="text-align: right;margin-top: 5px;margin-right: 8px;font-size: 15px">
-        欢迎你：<%= session.getAttribute("username") %>
+        欢迎你：<%= ((User)session.getAttribute(Constants.SessionAttrs.USER)).getNickname() %>
         <a href="/logout.do">  退出登录</a>
     </div>
-    <div class="title" style="text-align: center;font-size: 20px">
+    <div class="title" style="text-align: center;font-size: 25px;color: #6b635e">
         <p>欢迎使用此签到系统</p>
     </div>
-    <a target="main" href="../login.jsp">baidu</a>
-    <a target="main" href="../register.jsp">taobao</a>
-</div>
-<div style="height: 2px;width: 100%;background-color: black"></div>
-<iframe name="main" style="background-color: white;width: 100%;height: 90%;"></iframe>
+    <div class="button" style="width:100%;text-align: center;font-size: 18px;margin-top: 5px">
+        <a style="text-align: left" target="main" href="/main/count.do?method=get">查看统计</a>
+        <a style="text-align: right" target="main" href="../register.jsp">查看排名</a>
+    </div>
 
+</div>
+<div class="line" style="height: 2px;width: 100%;background-color: black"></div>
+<iframe name="main" style="background-color: white;width: 100%;height: 85%;"></iframe>
 </body>
 
 </html>

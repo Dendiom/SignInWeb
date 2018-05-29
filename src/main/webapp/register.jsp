@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.signinweb.bean.Result" %><%--
   Created by IntelliJ IDEA.
   User: Pu Yuan
   Date: 2018/4/10
@@ -10,17 +10,28 @@
 <head>
     <title>注册</title>
     <link rel="stylesheet" href="css/register.css">
+    <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
 </head>
 <body bgcolor="#9acd32">
 <div class="wrapper">
-    <form class="form-signin" action="/register.do" method="post">
+    <form class="form-signin" action="/register.do" method="post" style=""
+          onsubmit="return registerCheck(document.getElementById('username').value,
+          document.getElementById('password').value,
+          document.getElementById('passwordAgain').value)">
         <h1 align="center">用户注册</h1>
-        <input class="form-input" type="text" name="username" placeholder="请输入6~15位用户名" required="" autofocus="" /><br/>
-        <input class="form-input" type="password" name="password" placeholder="请输入密码" required=""/><br/>
-        <input class="form-input" type="password" name="password_again" placeholder="请再次输入密码" required=""/><br/>
+        <div>
+            <%
+                Result result = (Result) request.getAttribute("result");
+                if (result != null) {
+                    out.println(result.getObj());
+                }
+            %>
+        </div>
+        <input class="form-input" type="text" name="username" id="username" placeholder="请输入5~15位用户名" required="" autofocus="" /><br/>
+        <input class="form-input" type="password" name="password" id="password" placeholder="请输入密码" required=""/><br/>
+        <input class="form-input" type="password" name="password_again" id="passwordAgain" placeholder="请再次输入密码" required=""/><br/>
         <button class="form-button" type="submit">注册</button>
     </form>
 </div>
-
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.example.signinweb.util;
 
 
-public class SessionUtil {
+public class TimeUtil {
 
 }

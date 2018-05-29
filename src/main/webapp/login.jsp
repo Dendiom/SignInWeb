@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.signinweb.bean.Result" %>
+<%@ page import="com.example.signinweb.Constants" %><%--
   Created by IntelliJ IDEA.
   User: Pu Yuan
   Date: 2018/4/10
@@ -14,10 +15,20 @@
     <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
 </head>
 <body bgcolor="#9acd32">
+
 <div class="wrapper">
-    <form class="form-signin" action="/login.do" method="post" onsubmit="return usernameCheck(document.getElementById('username').value)">
+    <form class="form-signin" action="/login.do" method="post"
+          onsubmit="return usernameCheck(document.getElementById('username').value)">
         <h1 align="center">用户登录</h1>
-        <input class="form-input" type="text" name="username" id="username" placeholder="用户名" required="" autofocus="" /><br/>
+        <div>
+            <%
+                Result result = (Result) request.getAttribute(Constants.ReqAttrs.RESULT);
+                if (result != null) {
+                    out.println(result.getObj());
+                }
+            %>
+        </div>
+        <input class="form-input" type="text" name="username" id="username" placeholder="用户名" required="" autofocus=""/><br/>
         <input class="form-input" type="password" name="password" placeholder="密码" required=""/><br/>
         <label class="form-label">
             <input type="checkbox" value="1" id="rememberMe" name="rememberMe"> 记住登录状态

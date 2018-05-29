@@ -1,5 +1,8 @@
 package com.example.signinweb;
 
+/**
+ * 共享的常量类.
+ */
 public interface Constants {
 
     interface Cookies {
@@ -9,8 +12,11 @@ public interface Constants {
 
     interface SessionAttrs {
         String UID = "uid";
-        String USERNAME = "username";
-        String NICKNAME = "nickname";
+        String USER = "user";
     }
 
+    interface ReqAttrs {
+        String RESULT = "result";
+        String USER = "user";
+    }
 }

@@ -25,7 +25,7 @@ public class Base64Util {
             return "";
         }
 
-        return decodeStr.substring(SALT.length() - 1);
+        return decodeStr.substring(SALT.length());
     }
 
     public static boolean check(String str) {

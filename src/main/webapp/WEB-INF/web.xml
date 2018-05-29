@@ -12,6 +12,10 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <!--listener-->
+    <listener>
+        <listener-class>com.example.signinweb.listener.AppContextListener</listener-class>
+    </listener>
+    
 
     <!--filter-->
     <filter>
@@ -20,13 +24,22 @@
     </filter>
 
     <filter>
-        <filter-name>SessionFilter</filter-name>
-        <filter-class>com.example.signinweb.filter.CookieFilter</filter-class>
+        <filter-name>LogFilter</filter-name>
+        <filter-class>com.example.signinweb.filter.LogFilter</filter-class>
     </filter>
 
     <filter>
         <filter-name>RefreshSessionFilter</filter-name>
         <filter-class>com.example.signinweb.filter.RefreshSessionFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.example.signinweb.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encode</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
     </filter>
 
     <!--filter-mapping-->
@@ -36,11 +49,21 @@
     </filter-mapping>
 
     <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
         <filter-name>RefreshSessionFilter</filter-name>
         <url-pattern>/main/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>LogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <!--servlet-->
@@ -55,14 +78,24 @@
     </servlet>
 
     <servlet>
-        <servlet-name>FormServlet</servlet-name>
-        <servlet-class>com.example.signinweb.servlet.FormServlet</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.example.signinweb.servlet.RegisterServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>PerfectInfoServlet</servlet-name>
+        <servlet-class>com.example.signinweb.servlet.PerfectInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CountServlet</servlet-name>
+        <servlet-class>com.example.signinweb.servlet.CountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RankServlet</servlet-name>
+        <servlet-class>com.example.signinweb.servlet.RankServlet</servlet-class>
+    </servlet>
+
 
     <!--servlet-mapping-->
     <servlet-mapping>
@@ -76,13 +109,23 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>FormServlet</servlet-name>
-        <url-pattern>/form</url-pattern>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register.do</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register.do</url-pattern>
+        <servlet-name>PerfectInfoServlet</servlet-name>
+        <url-pattern>/perfect.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CountServlet</servlet-name>
+        <url-pattern>/main/count.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RankServlet</servlet-name>
+        <url-pattern>/main/rank.do</url-pattern>
     </servlet-mapping>
 
     <!--session-config-->
