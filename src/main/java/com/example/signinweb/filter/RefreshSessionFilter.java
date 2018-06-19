@@ -28,9 +28,9 @@ public class RefreshSessionFilter implements Filter {
             //refresh
             UserService userService = new UserServiceImpl();
             String uid = CookieUtil.getCookieValue(Constants.Cookies.UID, req);
-            System.out.println("uid" + uid);
+            //System.out.println("uid" + uid);
             String decode = Base64Util.decode(uid);
-            System.out.println("uid2" + decode);
+            //System.out.println("uid2" + decode);
             long id = Long.valueOf(Base64Util.decode(CookieUtil.getCookieValue(Constants.Cookies.UID, req)));
             Result result = userService.getUserInfo(id);
             if (result.getCode() == Code.SUCCESS) {

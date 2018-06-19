@@ -14,13 +14,15 @@ import java.sql.SQLException;
 
 public class UserDAOImpl implements UserDAO {
 
+    @Override
     public long insertUser(String username, String password) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(C3p0Helper.getDataSource());
-        BigInteger id = queryRunner.insert("insert into user(username, password) value(?,?)", new ScalarHandler<BigInteger>(),
+        BigInteger id = queryRunner.insert("insert into user(username, password) value(?,?)", new ScalarHandler<>(),
                 username, password);
         return id.longValue();
     }
 
+    @Override
     public void updateUser(User user) throws SQLException {
 //        System.out.println(user);
         QueryRunner queryRunner = new QueryRunner(C3p0Helper.getDataSource());
@@ -29,12 +31,14 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+    @Override
     public User getUserById(long id) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(C3p0Helper.getDataSource());
         return queryRunner.query("select * from user where id = ?",
                 new BeanHandler<User>(User.class), id);
     }
 
+    @Override
     public User getUserByUsername(String username) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(C3p0Helper.getDataSource());
         return queryRunner.query("select * from user where username = ?",

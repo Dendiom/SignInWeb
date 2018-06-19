@@ -2,9 +2,20 @@ package com.example.signinweb.bean;
 
 import com.example.signinweb.enums.Code;
 
+/**
+ * 数据库操作返回结果的封装.
+ * @param <T>
+ */
 public class Result<T> {
 
+    /**
+     * 状态码.
+     */
     private Code code;
+
+    /**
+     * 返回信息.
+     */
     private T obj;
 
     public Result(){}

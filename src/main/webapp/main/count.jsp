@@ -14,5 +14,6 @@
 <body>
 UserID: <%= ((User)session.getAttribute(Constants.SessionAttrs.USER)).getId()%>
 Method: <%= request.getAttribute("method")%>
+Record: <%= request.getAttribute(Constants.ReqAttrs.ERROR)%>>
 </body>
 </html>

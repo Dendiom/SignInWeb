@@ -6,7 +6,6 @@ import com.example.signinweb.bean.User;
 import com.example.signinweb.enums.Code;
 import com.example.signinweb.service.UserService;
 import com.example.signinweb.service.impl.UserServiceImpl;
-import sun.nio.cs.US_ASCII;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.math.BigInteger;
 
 public class PerfectInfoServlet extends HttpServlet {
 
@@ -24,7 +22,7 @@ public class PerfectInfoServlet extends HttpServlet {
         Long userId = (Long) session.getAttribute(Constants.SessionAttrs.UID);
         User userBean = new User();
         if (userId == null) {
-            request.setAttribute(Constants.ReqAttrs.RESULT, new Result<String>(Code.SERVER_ERROR, "服务器错误"));
+            request.setAttribute(Constants.ReqAttrs.ERROR, new Result<>(Code.SERVER_ERROR, "服务器错误"));
             request.getRequestDispatcher("/perfectInfo.jsp").forward(request, response);
             return;
         }
@@ -43,7 +41,7 @@ public class PerfectInfoServlet extends HttpServlet {
             return;
         }
 
-        request.setAttribute(Constants.ReqAttrs.RESULT, result);
+        request.setAttribute(Constants.ReqAttrs.ERROR, result);
         request.getRequestDispatcher("/perfectInfo.jsp").forward(request, response);
     }
 

@@ -6,9 +6,16 @@ import javafx.util.Pair;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Date;
 
 public class SQLUtil {
 
+    /**
+     * 根据传入的实体类，生成sql语句和需要的params数组.
+     *
+     * @param user 实体类.
+     * @return Pair<sql   ,       param   [   ]>.
+     */
     public static Pair<String, Object[]> genUpdateUserSQL(User user) {
         Object[] obj = new Object[6];
         StringBuilder sql = new StringBuilder("update user set ");
@@ -56,9 +63,53 @@ public class SQLUtil {
         return new Pair<String, Object[]>(sql.toString(), obj);
     }
 
+    /**
+     * 根据传入的信息，生成插入记录的sql语句.
+     *
+     * @param periodOfDay 早上/下午/晚上 0/1/2.
+     * @return String sql.
+     */
+    public static String genInsertRecordUrl(int periodOfDay) {
+        if (periodOfDay == 0) {
+            return "insert into record(username, week, day_of_week, in_time_mor) value(?, ?, ?, ?)";
+        }
+
+        if (periodOfDay == 1) {
+            return "insert into record(username, week, day_of_week, in_time_noon) value(?, ?, ?, ?)";
+        }
+
+        if (periodOfDay == 2) {
+            return "insert into record(username, week, day_of_week, in_time_eve) value(?, ?, ?, ?)";
+        }
+
+        return "";
+    }
+
+    /**
+     * 根据传入的信息，生成更新记录的sql语句.
+     *
+     * @param periodOfDay 早上/下午/晚上 0/1/2.
+     * @return String sql.
+     */
+    public static String genUpdateRecordUrl(int periodOfDay) {
+        if (periodOfDay == 0) {
+            return "update record set out_time_mor = ?, count = ? where id = ?";
+        }
+
+        if (periodOfDay == 1) {
+            return "update record set out_time_noon = ?, count = ? where id = ?";
+        }
+
+        if (periodOfDay == 2) {
+            return "update record set out_time_eve = ?, count = ? where id = ?";
+        }
+
+        return "";
+    }
+
     public static void main(String[] args) {
-        System.out.println(genUpdateUserSQL(new User((long)3, null, null, "d", 3,
-                null,"21", null, null)).getKey());
+        System.out.println(genUpdateUserSQL(new User((long) 3, null, null, "d", 3,
+                null, "21", null, null)).getKey());
 
     }
 }

@@ -62,7 +62,7 @@
 <div class="main-form">
     <div>
         <%
-            Result result = (Result) request.getAttribute(Constants.ReqAttrs.RESULT);
+            Result result = (Result) request.getAttribute(Constants.ReqAttrs.ERROR);
             if (result != null) {
                 out.println(result.getObj());
             }

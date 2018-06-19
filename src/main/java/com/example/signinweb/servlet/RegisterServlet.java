@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
             session.setAttribute(Constants.SessionAttrs.UID, result.getObj());
             resp.sendRedirect("/perfectInfo.jsp");
         } else {
-            req.setAttribute(Constants.ReqAttrs.RESULT, result);
+            req.setAttribute(Constants.ReqAttrs.ERROR, result);
             req.getRequestDispatcher("/register.jsp").forward(req, resp);
         }
     }

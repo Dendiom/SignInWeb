@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet{
             return;
         }
 
-        req.setAttribute(Constants.ReqAttrs.RESULT, result);
+        req.setAttribute(Constants.ReqAttrs.ERROR, result);
         req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }
 }

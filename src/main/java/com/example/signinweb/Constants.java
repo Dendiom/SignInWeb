@@ -7,7 +7,7 @@ public interface Constants {
 
     interface Cookies {
         String UID = "UID";
-        String[] ALL_COOKIE = {UID};
+        String[] ALL_COOKIE = {UID};  // 方便登出时清空cookie
     }
 
     interface SessionAttrs {
@@ -16,7 +16,8 @@ public interface Constants {
     }
 
     interface ReqAttrs {
-        String RESULT = "result";
+        String ERROR = "error";
         String USER = "user";
+        String RANK = "rank";
     }
 }

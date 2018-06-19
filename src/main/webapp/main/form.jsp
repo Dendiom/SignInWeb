@@ -34,12 +34,12 @@
     </div>
     <div class="button" style="width:100%;text-align: center;font-size: 18px;margin-top: 5px">
         <a style="text-align: left" target="main" href="/main/count.do?method=get">查看统计</a>
-        <a style="text-align: right" target="main" href="../register.jsp">查看排名</a>
+        <a style="text-align: right" target="main" href="/main/rank.do">查看排名</a>
     </div>
 
 </div>
 <div class="line" style="height: 2px;width: 100%;background-color: black"></div>
-<iframe name="main" style="background-color: white;width: 100%;height: 85%;"></iframe>
+<iframe name="main" src= "/main/count.do" style="background-color: white;width: 100%;height: 85%;"></iframe>
 </body>
 
 </html>

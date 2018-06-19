@@ -22,7 +22,7 @@
         <h1 align="center">用户登录</h1>
         <div>
             <%
-                Result result = (Result) request.getAttribute(Constants.ReqAttrs.RESULT);
+                Result result = (Result) request.getAttribute(Constants.ReqAttrs.ERROR);
                 if (result != null) {
                     out.println(result.getObj());
                 }
