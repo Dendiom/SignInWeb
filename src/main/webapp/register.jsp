@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/register.css">
     <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
 </head>
-<body bgcolor="#9acd32">
+<body bgcolor="#ffffff">
 <div class="wrapper">
     <form class="form-signin" action="/register.do" method="post" style=""
           onsubmit="return registerCheck(document.getElementById('username').value,

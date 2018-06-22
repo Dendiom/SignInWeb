@@ -8,6 +8,7 @@ import com.example.signinweb.enums.Code;
 import com.example.signinweb.service.RankService;
 
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class RankServiceImpl implements RankService {
@@ -17,8 +18,8 @@ public class RankServiceImpl implements RankService {
     @Override
     public Result getRank(String week) {
         try {
-            List<Rank> rank = rankDAO.getRank(week);
-            return new Result<>(Code.SUCCESS, rank);
+            List<Rank> ranks = rankDAO.getRank(week);
+            return new Result<>(Code.SUCCESS, ranks);
         } catch (SQLException e) {
             e.printStackTrace();
             e.printStackTrace();

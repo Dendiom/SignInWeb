@@ -27,4 +27,11 @@ public enum  Code {
      */
     USER_HAS_ALREADY_REGISTERED,
 
+    /**
+     * sign in/out error.
+     */
+    HAVE_SIGN_IN,
+    HAVE_SIGN_OUT,
+    NOT_SIGN_IN
+
 }

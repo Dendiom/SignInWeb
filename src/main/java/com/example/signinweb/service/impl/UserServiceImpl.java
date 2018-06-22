@@ -17,14 +17,14 @@ public class UserServiceImpl implements UserService {
         try {
             User user = userDAO.getUserByUsername(username);
             if (user != null) {
-                return new Result<String>(Code.USER_HAS_ALREADY_REGISTERED, "用户已存在");
+                return new Result<>(Code.USER_HAS_ALREADY_REGISTERED, "用户已存在");
             }
 
             long id = userDAO.insertUser(username, password);
-            return new Result<Long>(Code.SUCCESS, id);
+            return new Result<>(Code.SUCCESS, id);
         } catch (SQLException e) {
             e.printStackTrace();
-            return new Result<String>(Code.MYSQL_ERROR, "mysql error");
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
         }
     }
 
@@ -32,27 +32,27 @@ public class UserServiceImpl implements UserService {
         try {
             User user = userDAO.getUserByUsername(username);
             if (user == null) {
-                return new Result<String>(Code.USER_NOT_REGISTERED, "用户未注册");
+                return new Result<>(Code.USER_NOT_REGISTERED, "用户未注册");
             }
 
             if (password.equals(user.getPassword())) {
-                return new Result<User>(Code.SUCCESS, user);
+                return new Result<>(Code.SUCCESS, user);
             }
 
-            return new Result<String>(Code.PASSWORD_ERROR, "密码错误");
+            return new Result<>(Code.PASSWORD_ERROR, "密码错误");
         } catch (SQLException e) {
             e.printStackTrace();
-            return new Result<String>(Code.MYSQL_ERROR, "mysql error");
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
         }
     }
 
     public Result perfectInfo(User user) {
         try {
             userDAO.updateUser(user);
-            return new Result<String>(Code.SUCCESS, "");
+            return new Result<>(Code.SUCCESS, "");
         } catch (SQLException e) {
             e.printStackTrace();
-            return new Result<String>(Code.MYSQL_ERROR, "mysql error");
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
         }
     }
 
@@ -60,13 +60,13 @@ public class UserServiceImpl implements UserService {
         try {
             User user = userDAO.getUserById(id);
             if (user != null) {
-                return new Result<User>(Code.SUCCESS, user);
+                return new Result<>(Code.SUCCESS, user);
             }
 
-            return new Result<User>(Code.MYSQL_ERROR, null);
+            return new Result<>(Code.MYSQL_ERROR, null);
         } catch (SQLException e) {
             e.printStackTrace();
-            return new Result<String>(Code.MYSQL_ERROR, "mysql error");
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
         }
     }
 }

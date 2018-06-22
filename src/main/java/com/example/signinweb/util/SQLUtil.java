@@ -14,7 +14,7 @@ public class SQLUtil {
      * 根据传入的实体类，生成sql语句和需要的params数组.
      *
      * @param user 实体类.
-     * @return Pair<sql   ,       param   [   ]>.
+     * @return Pair<sql       ,               param       [       ]>.
      */
     public static Pair<String, Object[]> genUpdateUserSQL(User user) {
         Object[] obj = new Object[6];
@@ -36,17 +36,17 @@ public class SQLUtil {
             sql.append("grade= ?,");
         }
 
-        if (user.getPhone() != null) {
+        if (user.getPhone() != null && !user.getPhone().equals("")) {
             obj[len++] = user.getPhone();
             sql.append("phone = ?,");
         }
 
-        if (user.getMail() != null) {
+        if (user.getMail() != null && !user.getMail().equals("")) {
             obj[len++] = user.getMail();
             sql.append("mail = ?,");
         }
 
-        if (user.getDescription() != null) {
+        if (user.getDescription() != null && !user.getDescription().equals("")) {
             obj[len++] = user.getDescription();
             sql.append("description= ?,");
         }
@@ -57,10 +57,10 @@ public class SQLUtil {
         if (len < 6) {
             Object[] copy = new Object[len];
             System.arraycopy(obj, 0, copy, 0, len);
-            return new Pair<String, Object[]>(sql.toString(), copy);
+            return new Pair<>(sql.toString(), copy);
         }
 
-        return new Pair<String, Object[]>(sql.toString(), obj);
+        return new Pair<>(sql.toString(), obj);
     }
 
     /**
@@ -89,19 +89,23 @@ public class SQLUtil {
      * 根据传入的信息，生成更新记录的sql语句.
      *
      * @param periodOfDay 早上/下午/晚上 0/1/2.
+     * @param in          签到还是签出.
      * @return String sql.
      */
-    public static String genUpdateRecordUrl(int periodOfDay) {
+    public static String genUpdateRecordUrl(int periodOfDay, boolean in) {
         if (periodOfDay == 0) {
-            return "update record set out_time_mor = ?, count = ? where id = ?";
+            return in ? "update record set in_time_mor = ?, count = ? where id = ?" :
+                    "update record set out_time_mor = ?, count = ? where id = ?";
         }
 
         if (periodOfDay == 1) {
-            return "update record set out_time_noon = ?, count = ? where id = ?";
+            return in ? "update record set in_time_noon = ?, count = ? where id = ?" :
+                    "update record set out_time_noon = ?, count = ? where id = ?";
         }
 
         if (periodOfDay == 2) {
-            return "update record set out_time_eve = ?, count = ? where id = ?";
+            return in ? "update record set in_time_eve = ?, count = ? where id = ?" :
+                    "update record set out_time_eve = ?, count = ? where id = ?";
         }
 
         return "";

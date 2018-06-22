@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/login.css">
     <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
 </head>
-<body bgcolor="#9acd32">
+<body bgcolor="#ffffff">
 
 <div class="wrapper">
     <form class="form-signin" action="/login.do" method="post"

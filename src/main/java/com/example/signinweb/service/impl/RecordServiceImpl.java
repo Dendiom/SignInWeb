@@ -9,6 +9,7 @@ import com.example.signinweb.service.RecordService;
 import com.example.signinweb.util.TimeUtil;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public class RecordServiceImpl implements RecordService {
@@ -27,12 +28,63 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
-    public Result signIn() {
-        return null;
+    public Result signInFirstTime(String username, Date time) {
+        try {
+            long id = recordDAO.insertRecord(username, TimeUtil.getWeekIdentifier(), TimeUtil.getDayOfWeek(),
+                    time, TimeUtil.getDayPeriod());
+            return new Result<>(Code.SUCCESS, id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
+        }
     }
 
     @Override
-    public Result signOut() {
-        return null;
+    public Result signInUpdate(long id, Date time) {
+        try {
+            Record record = recordDAO.getRecordById(id);
+            int count = record.getCount() + 1800;
+            recordDAO.updateRecord(id, time, count, TimeUtil.getDayPeriod(), true);
+            return new Result<>(Code.SUCCESS, "");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
+        }
+    }
+
+
+    @Override
+    public Result signOut(long id, Date time) {
+        try {
+            Record record = recordDAO.getRecordById(id);
+            int count = record.getCount();
+            long inTime = 0;
+            int periodOfDay = TimeUtil.getDayPeriod();
+
+            switch (periodOfDay) {
+                case 0:
+                    inTime = record.getIn_time_mor().getTime() / 1000;
+                    break;
+                case 1:
+                    inTime = record.getIn_time_noon().getTime() / 1000;
+                    break;
+                case 2:
+                    inTime = record.getIn_time_eve().getTime() / 1000;
+                    break;
+                default:
+                    break;
+            }
+
+            int add = (int)(time.getTime() / 1000 - inTime);
+            if (add > 1800) {
+                count = count + add - 1800;
+            }
+
+            recordDAO.updateRecord(id, time, count, periodOfDay, false);
+            return new Result<>(Code.SUCCESS, "");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new Result<>(Code.MYSQL_ERROR, "mysql error");
+        }
     }
 }

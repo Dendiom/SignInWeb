@@ -11,5 +11,5 @@ public interface RecordDAO {
     Record getRecordByUsername(String username, String week, int dayOfWeek) throws SQLException;
     Record getRecordById(long id) throws SQLException;
     Long insertRecord(String username, String week, int dayOfWeek, Date time, int periodOfDay) throws SQLException;
-    void updateRecord(long id, Date time, int count, int periodOfDay) throws SQLException;
+    void updateRecord(long id, Date time, int count, int periodOfDay, boolean in) throws SQLException;
 }

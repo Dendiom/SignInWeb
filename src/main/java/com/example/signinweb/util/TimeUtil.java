@@ -37,11 +37,11 @@ public class TimeUtil {
     public static int getDayPeriod() {
         Calendar calendar = Calendar.getInstance(Locale.CHINA);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        if (hour >= 5 && hour <= 12) {
+        if (hour >= 0 && hour < 13) {
             return 0;
         }
 
-        if (hour >= 13 && hour <= 20) {
+        if (hour >= 13 && hour <= 19) {
             return 1;
         }
 
