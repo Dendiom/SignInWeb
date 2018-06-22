@@ -1,7 +1,7 @@
 # 基于JSP+Servlet+MySQL的简单签到系统
 此项目是我自学Java EE写的第一个demo，由于重点不在前端，所以前端代码混乱而且不美观，重点在于了解servlet以及Java Web基本知识。
 
-##基本介绍
+## 基本介绍
 - 直接使用Servlet，没有用任何框架，采用MVC架构
 - 数据库采用MySQL，使用了C3p0以及common_dbutils协助开发
 - 日志记录采用log4j
