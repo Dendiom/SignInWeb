@@ -23,7 +23,7 @@ public class RankServlet extends HttpServlet {
             return;
         }
 
-        req.setAttribute(Constants.ReqAttrs.ERROR, result.getObj());
+        req.setAttribute(Constants.ReqAttrs.ERROR, result);
         req.getRequestDispatcher("/main/rank.jsp").forward(req, resp);
     }
 }
