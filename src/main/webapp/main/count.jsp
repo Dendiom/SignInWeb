@@ -59,8 +59,8 @@ To change this template use File | Settings | File Templates.
     </table>
 </div>
 <div class="button" style="width:100%;text-align: center;font-size: 18px;margin-top: 20px">
-    <a style="text-align: left" target="main" href="/main/count.do?method=sign_in">签到</a>
-    <a style="text-align: right" target="main" href="/main/count.do?method=sign_out">签出</a>
+    <a style="text-align: left" target="main" href="count.do?method=sign_in">签到</a>
+    <a style="text-align: right" target="main" href="count.do?method=sign_out">签出</a>
 </div>
 </body>
 </html>

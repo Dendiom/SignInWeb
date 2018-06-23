@@ -17,7 +17,7 @@ public class LogoutServlet extends HttpServlet {
         }
 
         CookieUtil.deleteCookies(response);
-        response.sendRedirect("/login.jsp");
+        response.sendRedirect(getServletContext().getContextPath() + "/login.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

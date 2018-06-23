@@ -36,13 +36,13 @@ public class LoginServlet extends HttpServlet{
             resp.addCookie(cookie);
 
             HttpSession session = req.getSession();
-            session.setAttribute(Constants.SessionAttrs.USER, result.getObj());
+            session.setAttribute(Constants.SessionAttrs.USER, user);
 
-            resp.sendRedirect("/main/form.jsp");
+            resp.sendRedirect("main/form.jsp");
             return;
         }
 
         req.setAttribute(Constants.ReqAttrs.ERROR, result);
-        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("login.jsp").forward(req, resp);
     }
 }

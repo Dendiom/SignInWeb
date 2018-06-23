@@ -19,11 +19,11 @@ public class RankServlet extends HttpServlet {
         Result result = rankService.getRank(TimeUtil.getWeekIdentifier());
         if (result.getCode() == Code.SUCCESS) {
             req.setAttribute(Constants.ReqAttrs.RANK, result.getObj());
-            req.getRequestDispatcher("/main/rank.jsp").forward(req, resp);
+            req.getRequestDispatcher("rank.jsp").forward(req, resp);
             return;
         }
 
         req.setAttribute(Constants.ReqAttrs.ERROR, result);
-        req.getRequestDispatcher("/main/rank.jsp").forward(req, resp);
+        req.getRequestDispatcher("rank.jsp").forward(req, resp);
     }
 }

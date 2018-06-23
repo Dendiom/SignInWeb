@@ -68,7 +68,7 @@
             }
         %>
     </div>
-    <form action="/perfect.do" method="post">
+    <form action="perfect.do" method="post">
         <div class="div-style" id="nickname">
             <label>
                 <span class="span-left">姓名：</span>

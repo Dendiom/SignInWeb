@@ -73,7 +73,7 @@
     </servlet>
 
     <servlet>
-        <servlet-name>LogoutServelet</servlet-name>
+        <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.example.signinweb.servlet.LogoutServlet</servlet-class>
     </servlet>
 
@@ -104,7 +104,7 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>LogoutServelet</servlet-name>
+        <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout.do</url-pattern>
     </servlet-mapping>
 

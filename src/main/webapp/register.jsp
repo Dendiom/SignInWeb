@@ -10,11 +10,11 @@
 <head>
     <title>注册</title>
     <link rel="stylesheet" href="css/register.css">
-    <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/inputCheck.js"></script>
 </head>
 <body bgcolor="#ffffff">
 <div class="wrapper">
-    <form class="form-signin" action="/register.do" method="post" style=""
+    <form class="form-signin" action="register.do" method="post" style=""
           onsubmit="return registerCheck(document.getElementById('username').value,
           document.getElementById('password').value,
           document.getElementById('passwordAgain').value)">

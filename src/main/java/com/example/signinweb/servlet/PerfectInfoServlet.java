@@ -23,7 +23,7 @@ public class PerfectInfoServlet extends HttpServlet {
         User userBean = new User();
         if (userId == null) {
             request.setAttribute(Constants.ReqAttrs.ERROR, new Result<>(Code.SERVER_ERROR, "服务器错误"));
-            request.getRequestDispatcher("/perfectInfo.jsp").forward(request, response);
+            request.getRequestDispatcher("perfectInfo.jsp").forward(request, response);
             return;
         }
 
@@ -37,12 +37,12 @@ public class PerfectInfoServlet extends HttpServlet {
         Result result = userService.perfectInfo(userBean);
 
         if (Code.SUCCESS == result.getCode()) {
-            response.sendRedirect("/login.jsp");
+            response.sendRedirect("login.jsp");
             return;
         }
 
         request.setAttribute(Constants.ReqAttrs.ERROR, result);
-        request.getRequestDispatcher("/perfectInfo.jsp").forward(request, response);
+        request.getRequestDispatcher("perfectInfo.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

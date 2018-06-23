@@ -9,7 +9,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
     <title>签到系统</title>
@@ -22,9 +21,9 @@
     String cookie = CookieUtil.getCookieValue(Constants.Cookies.UID, request);
     boolean legal = Base64Util.check(cookie);
     if (!legal) {
-        response.sendRedirect("/login.jsp");
+        response.sendRedirect("login.jsp");
     } else {
-        response.sendRedirect("/main/form.jsp");
+        response.sendRedirect("main/form.jsp");
     }
 %>
 

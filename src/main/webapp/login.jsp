@@ -12,12 +12,12 @@
 <head>
     <title>登录</title>
     <link rel="stylesheet" href="css/login.css">
-    <script language="JavaScript" type="text/javascript" src="/js/inputCheck.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/inputCheck.js"></script>
 </head>
 <body bgcolor="#ffffff">
 
 <div class="wrapper">
-    <form class="form-signin" action="/login.do" method="post"
+    <form class="form-signin" action="login.do" method="post"
           onsubmit="return usernameCheck(document.getElementById('username').value)">
         <h1 align="center">用户登录</h1>
         <div>
@@ -34,7 +34,7 @@
             <input type="checkbox" value="1" id="rememberMe" name="rememberMe"> 记住登录状态
         </label><br/>
         <button class="form-button" type="submit">登录</button>
-        <a class="form-label" href="/register.jsp">还没有用户，点击此处注册</a>
+        <a class="form-label" href="register.jsp">还没有用户，点击此处注册</a>
     </form>
 </div>
 

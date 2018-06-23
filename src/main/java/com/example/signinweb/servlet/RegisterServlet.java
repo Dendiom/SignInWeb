@@ -25,10 +25,10 @@ public class RegisterServlet extends HttpServlet {
         HttpSession session = req.getSession();
         if (result.getCode() == Code.SUCCESS) {   // 成功注册
             session.setAttribute(Constants.SessionAttrs.UID, result.getObj());
-            resp.sendRedirect("/perfectInfo.jsp");
+            resp.sendRedirect("perfectInfo.jsp");
         } else {
             req.setAttribute(Constants.ReqAttrs.ERROR, result);
-            req.getRequestDispatcher("/register.jsp").forward(req, resp);
+            req.getRequestDispatcher("register.jsp").forward(req, resp);
         }
     }
 }

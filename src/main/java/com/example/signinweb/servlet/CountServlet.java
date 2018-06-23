@@ -39,7 +39,7 @@ public class CountServlet extends HttpServlet {
             signOut(req, user, session);
         }
 
-        req.getRequestDispatcher("/main/count.jsp").forward(req, resp);
+        req.getRequestDispatcher("count.jsp").forward(req, resp);
     }
 
     /**
