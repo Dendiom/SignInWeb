@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -23,13 +24,18 @@ public class RefreshSessionFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 
-        HttpSession session = ((HttpServletRequest)req).getSession();
+        HttpServletRequest request = (HttpServletRequest)req;
+        HttpSession session = request.getSession();
         if (session.getAttribute(Constants.SessionAttrs.USER) == null) {
             //refresh
             UserService userService = new UserServiceImpl();
             String uid = CookieUtil.getCookieValue(Constants.Cookies.UID, req);
+            if (uid == null) {
+                ((HttpServletResponse)resp).sendRedirect( req.getServletContext().getContextPath() + "/login.jsp");
+                return;
+            }
             //System.out.println("uid" + uid);
-            String decode = Base64Util.decode(uid);
+            //String decode = Base64Util.decode(uid);
             //System.out.println("uid2" + decode);
             long id = Long.valueOf(Base64Util.decode(CookieUtil.getCookieValue(Constants.Cookies.UID, req)));
             Result result = userService.getUserInfo(id);
