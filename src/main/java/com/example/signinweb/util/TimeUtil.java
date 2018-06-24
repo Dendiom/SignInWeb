@@ -8,10 +8,12 @@ public class TimeUtil {
 
     /**
      * 获取本周一0点的时间戳.
+     * 注意，外国人把周日当成了第一天.
      * @return string.
      */
     public static String getWeekIdentifier() {
         Calendar calendar = Calendar.getInstance(Locale.CHINA);
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);  // important
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
