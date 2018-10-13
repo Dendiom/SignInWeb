@@ -20,7 +20,3 @@
 ![avatar](picture/count.png)
 - 签到排名界面
 ![avatar](picture/rank.png)
-## TODO列表
-- 签到排名进行分页
-- 统计网站访问数并做持久化
-- 支持用户查看、修改个人信息
