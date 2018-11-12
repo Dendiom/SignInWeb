@@ -16,14 +16,4 @@ public class RankDAOImpl implements RankDAO {
                 " where record.week = ? and user.username = record.username " +
                 "group by record.username order by count desc;", new BeanListHandler<>(Rank.class), week);
     }
-
-    public static void main(String[] args) {
-        RankDAO rankDAO = new RankDAOImpl();
-        try {
-            List<Rank> ranks = rankDAO.getRank("1527436800");
-            System.out.println(ranks);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

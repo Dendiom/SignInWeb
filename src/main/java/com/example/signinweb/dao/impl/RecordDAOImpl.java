@@ -51,18 +51,4 @@ public class RecordDAOImpl implements RecordDAO {
         QueryRunner queryRunner = new QueryRunner(C3p0Helper.getDataSource());
         queryRunner.update(SQLUtil.genUpdateRecordUrl(periodOfDay, in), time, count, id);
     }
-
-    public static void main(String[] args) {
-        RecordDAO recordDAO = new RecordDAOImpl();
-        try {
-             long r = recordDAO.insertRecord("2013210681", TimeUtil.getWeekIdentifier(), TimeUtil.getDayOfWeek(),
-                    new Date(), 2);
-            System.out.println(r);
-            //recordDAO.updateRecord(r, new Date(), 4000, TimeUtil.getDayPeriod());
-            //System.out.println(recordDAO.getRecordById(r));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
 }

@@ -27,7 +27,7 @@ public class SQLUtil {
         }
 
         if (user.getSex() != null) {
-            obj[len++] = user.getSex();
+            obj[len++] = user.getSex() ? 1: 0;
             sql.append("sex = ?,");
         }
 
@@ -112,7 +112,7 @@ public class SQLUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(genUpdateUserSQL(new User((long) 3, null, null, "d", 3,
+        System.out.println(genUpdateUserSQL(new User((long) 3, null, null, "d", true,
                 null, "21", null, null)).getKey());
 
     }

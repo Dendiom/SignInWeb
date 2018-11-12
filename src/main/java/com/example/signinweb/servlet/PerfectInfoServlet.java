@@ -29,7 +29,7 @@ public class PerfectInfoServlet extends HttpServlet {
 
         userBean.setId(userId);
         userBean.setNickname(request.getParameter("nickname"));
-        userBean.setSex(Integer.valueOf(request.getParameter("sex")));
+        userBean.setSex("1".equals(request.getParameter("sex")));
         userBean.setGrade(request.getParameter("grade"));
         userBean.setPhone(request.getParameter("phone"));
         userBean.setMail(request.getParameter("mail"));

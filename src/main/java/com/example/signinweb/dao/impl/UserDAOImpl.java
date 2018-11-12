@@ -7,10 +7,13 @@ import com.example.signinweb.util.SQLUtil;
 import javafx.util.Pair;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.math.BigInteger;
 import java.sql.SQLException;
+import java.util.Map;
+import java.util.Queue;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -45,14 +48,9 @@ public class UserDAOImpl implements UserDAO {
                 new BeanHandler<User>(User.class), username);
     }
 
-    public static void main(String[] args) {
-        UserDAO userDAO = new UserDAOImpl();
-        User user = null;
-        try {
-            user = userDAO.getUserByUsername("testUser");
-            System.out.println(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    @Override
+    public void deleteUserById(long id) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(C3p0Helper.getDataSource());
+        queryRunner.update("delete from user where id = ?", id);
     }
 }

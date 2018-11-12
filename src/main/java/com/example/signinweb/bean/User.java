@@ -9,7 +9,7 @@ public class User {
     private String username;
     private String password;
     private String nickname;
-    private Integer sex;
+    private Boolean sex;
     private String grade;
     private String phone;
     private String mail;
@@ -49,11 +49,11 @@ public class User {
         this.nickname = nickname;
     }
 
-    public Integer getSex() {
+    public Boolean getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Boolean sex) {
         this.sex = sex;
     }
 
@@ -107,7 +107,7 @@ public class User {
 
     public User() {}
 
-    public User(Long id, String username, String password, String nickname, Integer sex, String grade, String phone,
+    public User(Long id, String username, String password, String nickname, Boolean sex, String grade, String phone,
                 String mail, String description) {
         this.id = id;
         this.username = username;
